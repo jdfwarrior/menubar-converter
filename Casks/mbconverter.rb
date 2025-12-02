@@ -3,7 +3,7 @@ cask "mbconverter" do
   sha256 "PLACEHOLDER"
 
   url "https://github.com/jdfwarrior/menubar-converter/releases/download/v#{version}/mbconverter-#{version}.zip"
-  name "MBConverter"
+  name "mbconverter"
   desc "Menubar app that converts MKV files to MP4 using HandBrakeCLI"
   homepage "https://github.com/jdfwarrior/menubar-converter"
 
