@@ -1,6 +1,6 @@
 cask "mbconverter" do
   version "0.0.3"
-  sha256 "4ff3b5d0191e9a982d29e25c74b94a56ad7fd2d58d81eed2cf3b60991a614565"
+  sha256 "b5110fe7b39abea5fdad3463125667605dd93a43a002d092ced7b73ce1f3765a"
 
   url "https://github.com/jdfwarrior/menubar-converter/releases/download/v#{version}/mbconverter-#{version}.zip"
   name "mbconverter"
