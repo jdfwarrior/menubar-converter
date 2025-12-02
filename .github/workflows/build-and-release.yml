@@ -34,14 +34,14 @@ jobs:
       - name: Zip app
         run: |
           cd dist
-          zip -r MBConverter-${{ steps.vars.outputs.version }}.zip MBConverter.app
+          zip -r mbconverter-${{ steps.vars.outputs.version }}.zip MBConverter.app
           ls -la
 
       - name: Compute sha256
         id: sha
         run: |
           cd dist
-          FILE=MBConverter-${{ steps.vars.outputs.version }}.zip
+          FILE=mbconverter-${{ steps.vars.outputs.version }}.zip
           SHA=$(shasum -a 256 "$FILE" | awk '{print $1}')
           echo "sha=$SHA" >> $GITHUB_OUTPUT
 
@@ -50,7 +50,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ github.ref_name }}
-          name: MBConverter ${{ steps.vars.outputs.version }}
+          name: mbconverter ${{ steps.vars.outputs.version }}
           body: "Automated build for tag ${{ github.ref_name }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -58,7 +58,7 @@ jobs:
       - name: Upload Release Asset
         uses: softprops/action-gh-release@v1
         with:
-          files: dist/MBConverter-${{ steps.vars.outputs.version }}.zip
+          files: dist/mbconverter-${{ steps.vars.outputs.version }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
