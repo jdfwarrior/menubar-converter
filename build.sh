@@ -2,11 +2,11 @@
 set -euo pipefail
 
 # Simple build+package script for MBConverter
-# - Builds the Swift package in MBConverter/
-# - Creates a minimal .app bundle in dist/MBConverter.app
+# - Builds the Swift package in `src/`
+# - Creates a minimal .app bundle in `dist/MBConverter.app`
 
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
-PKG_DIR="$ROOT_DIR/MBConverter"
+PKG_DIR="$ROOT_DIR/src"
 BUILD_CONFIG="release"
 
 echo "Root: $ROOT_DIR"

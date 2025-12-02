@@ -43,7 +43,7 @@ Build & Run
 2. From this folder run:
 
 ```bash
-cd MBConverter
+cd src
 swift build -c release
 swift run MBConverter
 ```
