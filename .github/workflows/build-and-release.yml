@@ -2,8 +2,8 @@ name: Build and Release
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - 'v*.*.*'
 
 permissions:
   contents: write
@@ -26,9 +26,9 @@ jobs:
       - name: Prepare release variables
         id: vars
         run: |
-          SHORT_SHA=$(git rev-parse --short HEAD)
-          DATE=$(date -u +"%Y.%m.%d")
-          VERSION="${DATE}-${SHORT_SHA}"
+          # Use tag name as version (strip leading 'v' if present)
+          TAG=${GITHUB_REF#refs/tags/}
+          VERSION=${TAG#v}
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Zip app
@@ -49,9 +49,9 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v${{ steps.vars.outputs.version }}
-          name: MBConverter v${{ steps.vars.outputs.version }}
-          body: "Automated build from main: ${{ steps.vars.outputs.version }}"
+          tag_name: ${{ github.ref_name }}
+          name: MBConverter ${{ steps.vars.outputs.version }}
+          body: "Automated build for tag ${{ github.ref_name }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
