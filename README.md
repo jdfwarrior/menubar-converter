@@ -56,8 +56,7 @@ Notes & limitations
 - HandBrakeCLI path is `/usr/local/bin/HandBrakeCLI` by default; adjust if installed elsewhere.
 - The code attempts simple parsing of filenames to extract a 4-digit year when the base filename is dot-delimited.
 
-Install via Homebrew (personal tap)
-----------------------------------
+## Install via Homebrew (personal tap)
 
 You can provide the app as a Homebrew Cask from this repository (personal tap). This repo already contains `Casks/mbconverter.rb` and a GitHub Actions workflow that builds and creates releases when you push tags.
 
@@ -75,5 +74,6 @@ brew install --cask jdfwarrior/menubar-converter/mbconverter
 ```
 
 Notes:
+
 - The GitHub Actions workflow in this repo triggers on tag pushes (tags like `v0.1.0`) and produces a GitHub Release containing the built `.zip` of `MBConverter.app`. The workflow also updates `Casks/mbconverter.rb` with the new `version` and `sha256` for the release.
 - If the repository is private, only users with access can `brew tap` it; the cask will not be discoverable via `brew search` unless it is added to the official `homebrew/cask` repo.
