@@ -6,6 +6,8 @@
     <string>en</string>
     <key>CFBundleIdentifier</key>
     <string>com.example.mbconverter</string>
+    <key>CFBundleIconFile</key>
+    <string>AppIcon</string>
     <key>CFBundleName</key>
     <string>MBConverter</string>
     <key>CFBundlePackageType</key>

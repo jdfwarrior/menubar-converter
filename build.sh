@@ -107,6 +107,13 @@ else
 EOF
 fi
 
+# Copy app icon
+ICON_SRC="$PKG_DIR/Packaging/AppIcon.icns"
+if [ -f "$ICON_SRC" ]; then
+  echo "Copying app icon..."
+  cp "$ICON_SRC" "$RESOURCES_DIR/AppIcon.icns"
+fi
+
 # Copy extra resources (if any)
 if [ -d "$PKG_DIR/Sources/MBConverter/Resources" ]; then
   echo "Copying Resources..."
